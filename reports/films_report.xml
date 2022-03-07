@@ -1,0 +1,80 @@
+<odoo>
+    <data>
+
+   
+        <report
+            id="report_films"
+            model="film.film"
+            string="Films Report"
+            name="HolyScripturesFilms.report_films_views"
+            file="HolyScripturesFilms.report_films"
+            report_type="qweb-html" />
+
+        
+        <report
+            id="report_films_pdf"
+           model="film.film"
+            string="Films Report (PDF)"
+               name="HolyScripturesFilms.report_films_views"
+            file="HolyScripturesFilms.report_films"
+            report_type="qweb-pdf" />            
+
+      
+        <template id="report_films_views">
+            <t t-call="web.html_container">
+            
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <div class="container-fluid">
+                                <h2 class="text-center mt32">
+                                    Film Tittle:
+                                    <span t-field="doc.name"/>
+                                </h2>
+                                  <h3 class="text-center mt32">
+                                    Director:
+                                    <span t-field="doc.director"/>
+                                </h3>
+                                   <h3 class="text-center mt32">
+                                    Main Character:
+                                    <span t-field="doc.protagonista"/>
+                                </h3>
+                                 <h3 class="text-center mt32">
+                                    Release Date:
+                                    <span t-field="doc.date_release"/>
+                                </h3>                       
+                                
+                                <h3 class="text-center mt32">
+                                    Renter Name:
+                                    <span t-field="doc.renter_name"/>
+                                </h3>
+                                <h3 class="text-center mt32">
+                                    Renter Age:
+                                    <span t-field="doc.renter_age"/>
+                                </h3>
+                                <div class="row mt32 mb32">
+                                    <div class="col-7">
+                                    </div>
+                                </div>
+
+                                <div class="row mt32 mb32 border p-2">
+                                    <div class="col-12">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>                                                                                        
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

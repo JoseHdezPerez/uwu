@@ -1,0 +1,73 @@
+<odoo>
+    <data>
+
+   
+        <report
+            id="report_cultfilms"
+            model="cult.films"
+            string="Cult Films Report"
+            name="HolyScripturesFilms.report_filmscult_views"
+            file="HolyScripturesFilms.report_filmscult"
+            report_type="qweb-html" />
+
+        
+        <report
+            id="report_cultfilms_pdf"
+           model="cult.films"
+            string="Cult Films Report (PDF)"
+               name="HolyScripturesFilms.report_filmscult_views"
+            file="HolyScripturesFilms.report_filmscult"
+            report_type="qweb-pdf" />            
+
+      
+        <template id="report_filmscult_views">
+            <t t-call="web.html_container">
+            
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <div class="container-fluid">
+                                <h2 class="text-center mt32">
+                                    Film Tittle:
+                                    <span t-field="doc.name"/>
+                                </h2>
+                                  <h3 class="text-center mt32">
+                                    Category:
+                                    <span t-field="doc.category"/>
+                                </h3>
+                                   <h3 class="text-center mt32">
+                                    Ideology:
+                                    <span t-field="doc.ideology"/>
+                                </h3>
+                                 <h3 class="text-center mt32">
+                                    Plot:
+                                    <span t-field="doc.plot"/>
+                                </h3>                       
+                                
+                               
+                                <div class="row mt32 mb32">
+                                    <div class="col-7">
+                                    </div>
+                                </div>
+
+                                <div class="row mt32 mb32 border p-2">
+                                    <div class="col-12">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>                                                                                        
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
